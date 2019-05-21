@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <title>动画方法练习</title>
+
+    <style>
+        li{
+            list-style: none;
+            float: left;
+        }
+    </style>
+
+    <script src="jq/jquery-1.12.1.js"></script>
+    <script>
+        $(function(){
+            $("ul>li").click(
+                function(){
+                    $(this).hide(1000);
+                }
+            );
+        });
+    </script>
+
+</head>
+<body>
+    <ul>
+        <li><a href="#"><img src="images/movie/1.webp" alt=""></a></li>
+        <li><a href="#"><img src="images/movie/2.webp" alt=""></a></li>
+        <li><a href="#"><img src="images/movie/3.webp" alt=""></a></li>
+        <li><a href="#"><img src="images/movie/4.webp" alt=""></a></li>
+        <li><a href="#"><img src="images/movie/5.webp" alt=""></a></li>
+    </ul>
+</body>
+</html

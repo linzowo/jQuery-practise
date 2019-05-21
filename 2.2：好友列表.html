@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <title>网页开关灯</title>
+
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        body{
+            background-color: #333;
+        }
+        li{
+            list-style: none;
+            text-align: center;
+            cursor: pointer;
+        }
+        .box{
+            margin-left: 400px;
+            margin-top: 100px;
+        }
+        .box>ul{
+            width: 300px;
+            height: 420px;
+            border: 5px solid yellow;
+        }
+        .u1>li{
+            background-color: orange;
+            font-size: 20px;
+            margin-bottom: 10px;
+        }
+        .u2{
+            display: none;
+        }
+        .u2>li{
+            background-color: pink;
+            margin-bottom: 10px;
+        }
+    </style>
+    <script src="jq/jquery-1.12.1.js"></script>
+    <script>
+        // 当鼠标点击li时显示其内部的ul
+        $(function(){
+            $(".u1>li").click(function(){//鼠标点击
+                // 判断当前的好友列表是否处于展示状态，如果是就将其隐藏，不是就显示
+                if($(this).children("ul")[0].style.display != "none"){
+                    $(this).children("ul").hide();
+                }else{
+                    // 显示下面的ul
+                    $(this).children("ul").show();
+                    // 隐藏兄弟元素的ul
+                    $(this).siblings().children("ul").hide();
+                }
+            });
+        });
+    </script>
+</head>
+<body>
+    <div class="box">
+        <ul class="u1">
+            <li>
+                小学好友
+                <ul class="u2">
+                    <li>小狗蛋</li>
+                    <li>小铁蛋</li>
+                    <li>小钢蛋</li>
+                </ul>
+            </li>
+            <li>
+                初中好友
+                <ul class="u2">
+                    <li>中狗蛋</li>
+                    <li>中铁蛋</li>
+                    <li>中钢蛋</li>
+                </ul>
+            </li>
+            <li>
+                高中好友
+                <ul class="u2">
+                    <li>大狗蛋</li>
+                    <li>大铁蛋</li>
+                    <li>大钢蛋</li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+</body>
+</html>

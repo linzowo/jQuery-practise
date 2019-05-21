@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <title>操作兄弟元素</title>
+
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        li{
+            list-style: none;
+        }
+        a{
+            text-decoration: none;
+            color: black;
+        }
+        .box{
+            margin-left: 400px;
+            margin-top: 100px;
+            width: 900px;
+            height: 600px;
+            /* background-color: pink; */
+        }
+        /* 导航栏区开始 */
+        .tab-list{
+            border:1px solid #ccc;
+            overflow: hidden;
+            width: 416px;
+            height: 40px;
+            box-sizing: border-box;
+        }
+        .tab-list li{
+            float: left;
+            width: 100px;
+            height: 40px;
+            padding: 8px 0;
+            box-sizing: border-box;
+            border-top: 2px solid rgba(255, 0, 0, 0);
+            text-align: center;
+        }
+        .tab-list li.active{
+            border-top: 2px solid rgba(255, 0, 0, 1);
+        }
+        .tab-list li:nth-last-child(1) a{
+            border-right: 0px;
+        }
+        .tab-list li a{
+            display: block;
+            width: 99px;
+            height: 20px;
+            border-right: 1px solid green;
+        }   
+        /* 展示区开始 */
+        .list-wp{
+            border:1px solid #ccc;
+            width: 873px;
+        }
+        .list-wp li{
+            display: none;
+        }
+        .list-wp li:first-child{
+            display: block;
+        }
+    </style>
+
+    <script src="jq/jquery-1.12.1.js"></script>
+    <script>
+        $(function(){
+            // 导航栏
+            $(".tab-list>li").mouseenter(function(){
+                // 鼠标进入顶部显示红条
+                // 清除所有兄弟元素的class
+                $(this).siblings("li").removeClass("active");
+                $(this).addClass("active");
+                // 改变展示区展示内容
+                // 获取索引值
+                var index = $(this).index();
+                // 隐藏所有的展示内容
+                $(".list-wp>li").hide()
+                // 展示区对应的索引值的区域展示出来
+                $(".list-wp>li").eq(index).show();
+            });
+        });
+    </script>
+
+</head>
+<body>
+    <div class="box">
+        <ul class="tab-list">
+            <li class="active"><a href="#">最新</a></li>
+            <li><a href="#">最热</a></li>
+            <li><a href="#">经典</a></li>
+            <li><a href="#">豆瓣高分</a></li>
+        </ul>
+        <ul class="list-wp">
+            <li><a href="#"><img src="images/tab/最新.png" alt=""></a></li>
+            <li><a href="#"><img src="images/tab/最热.png" alt=""></a></li>
+            <li><a href="#"><img src="images/tab/经典.png" alt=""></a></li>
+            <li><a href="#"><img src="images/tab/豆瓣高分.png" alt=""></a></li>
+        </ul>
+    </div>
+</body>
+</html>

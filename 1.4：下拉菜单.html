@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <title>下拉菜单</title>
+
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        a{
+            font-size: 20px;
+            color: black;
+            text-decoration: none;
+        }
+        li{
+            list-style: none;
+        }
+        .wrap{
+            background-color: pink;
+            margin-top: 100px;
+            margin-left: 400px;
+            width: 540px;
+            height: 50px;
+        }
+        .wrap>ul{
+            /* overflow: hidden; */
+            background-color: purple;
+        }
+        .wrap>ul>li{
+            width: 180px;
+            height: 50px;
+            float: left;
+            text-align: center;
+        }
+        .wrap>ul>li>a{
+            background-color: purple;
+            display: block;
+            height: 100%;
+            line-height: 50px;
+        }
+        .wrap>ul>li ul{
+            background-color: purple;
+            display: none;
+        }
+        .wrap>ul>li ul li{
+            height: 30px;
+            line-height: 30px;
+        }
+    </style>
+    <script src="jq/jquery-1.12.1.js"></script>
+    <script>
+        // 鼠标进入的时候显示下拉菜单
+        $(function(){
+            // 鼠标进入事件
+            $("#uu>li").mouseenter(function(){
+                $(this).children("ul").stop().show(200);
+            });
+            // 鼠标离开事件
+            $("#uu>li").mouseout(function(){
+                $(this).children("ul").stop().hide(200);
+            });
+
+        });
+    </script>
+</head>
+<body>
+    <div id="wrap" class="wrap">
+        <ul id="uu">
+            <li>
+                <a href="javascript:void(0);">麻辣味</a>
+                <ul>
+                    <li><a href="javascript:void(0);">麻辣小龙虾</a></li>
+                    <li><a href="javascript:void(0);">麻辣干锅</a></li>
+                    <li><a href="javascript:void(0);">亲辣椒炒干辣椒</a></li>
+                </ul>
+            </li>
+            <li>
+                <a href="javascript:void(0);">麻辣味</a>
+                <ul>
+                    <li><a href="javascript:void(0);">麻辣小龙虾</a></li>
+                    <li><a href="javascript:void(0);">麻辣干锅</a></li>
+                    <li><a href="javascript:void(0);">亲辣椒炒干辣椒</a></li>
+                </ul>
+            </li>
+            <li>
+                <a href="javascript:void(0);">麻辣味</a>
+                <ul>
+                    <li><a href="javascript:void(0);">麻辣小龙虾</a></li>
+                    <li><a href="javascript:void(0);">麻辣干锅</a></li>
+                    <li><a href="javascript:void(0);">亲辣椒炒干辣椒</a></li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+</body>
+</html>

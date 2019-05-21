@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <title>高亮显示</title>
+
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        .box{
+            margin-left: 400px;
+            margin-top: 100px;
+        }
+        .box ul{
+            border: 1px solid #ccc;
+            width: 100px;
+        }
+        .box ul li{
+            display: block;
+            list-style: none;
+            height: 30px;
+            line-height: 30px;
+            text-align: center;
+            cursor: pointer;
+        }
+    </style>
+    <script src="jq/jquery-1.12.1.js"></script>
+    <script>
+        // s鼠标进入时高亮
+        // 普通版本
+        // $(function(){
+        //     $("li").mouseenter(function(){
+        //         $(this).css("backgroundColor","yellow");
+        //     });
+        //     $("li").mouseout(function(){
+        //         $(this).css("backgroundColor","");
+        //     });
+        // });
+
+        // 链式编程版本
+        $(function(){
+            $("li").mouseenter(function(){
+                $(this).css("backgroundColor","yellow");
+            }).mouseout(function(){
+                $(this).css("backgroundColor","");
+            });
+        });
+
+    </script>
+</head>
+<body>
+    <div class="box" id="box">
+        <ul id="uu">
+            <li>床前明月光</li>
+            <li>疑是地上霜</li>
+            <li>举头望明月</li>
+            <li>低头思故乡</li>
+        </ul>
+    </div>
+</body>
+</html>

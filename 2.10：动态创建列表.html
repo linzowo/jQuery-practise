@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <title>创建元素练习</title>
+
+    <style>
+        div{
+            width: 500px;
+            height: 600px;
+            border: 1px solid #ccc;
+        }
+    </style>
+
+    <script src="jq/jquery-1.12.1.js"></script>
+    <script>
+        var poem = ["静夜思","李白","床前明月光。","疑是地上霜。","举头望明月。","低头思故乡。"];
+        $(function(){
+            $("#btn").click(
+                function(){
+                    // 创建一个ul加入到div中
+                    var ulObj = $("<ul style = 'list-style-type:none;cursor:pointer'></ul>").appendTo("div");
+                    // 动态的创建li添加到ul中
+                    var length = poem.length;
+                    for(var i=0;i<length;i++){
+                        $("<li>"+poem[i]+"</li>").appendTo(ulObj).mouseenter(function(){
+                            $(this).css("backgroundColor","orange");
+                        }).mouseleave(function(){
+                            $(this).css("backgroundColor","");
+                        });
+                    }
+                }
+            );
+        });
+    </script>
+
+</head>
+<body>
+    <input type="button" value="创建一个ul列表" id="btn" />
+    <div></div>
+    
+</body>
+</html

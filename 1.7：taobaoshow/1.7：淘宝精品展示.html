@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <title>淘宝精品展示</title>
+
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        a{
+            text-decoration: none;
+            color: black;
+        }
+        li{
+            list-style: none;
+            border: 1px solid #ccc;
+            height: 25px;
+            line-height: 25px;
+        }
+        .box{
+            margin-left: 400px;
+            margin-top: 100px;
+            overflow: hidden;
+            width: auto;
+        }
+        .box ul{
+            float: left;
+        }
+        .box ul:nth-child(2){
+            margin: 0 20px;
+        }
+        .box ul:nth-child(2) li{
+            display: none;
+        }
+        .box ul:nth-child(2) li:nth-child(1){
+            display: block;
+        }
+    </style>
+    <script src="../jq/jquery-1.12.1.js"></script>
+    <script>
+        // 我的思路
+        /* 
+        在中间的ul中只有一组li
+        在当鼠标进入到导航栏时
+        获取进入的标签的属性值
+        然后展示修改中间li的图片的src属性
+         */
+        /* $(function(){
+            // 鼠标进入在左侧的导航栏
+            $("#left>li").mouseenter(function(){
+                $(this).css("backgroundColor","yellow");
+                $("#center>li>img").attr("src","images/"+($(this).text())+".webp");
+            }).mouseout(function(){
+                $(this).css("backgroundColor","");
+            });
+
+            // 鼠标进入在有侧的导航栏
+            $("#right>li").mouseenter(function(){
+                $(this).css("backgroundColor","yellow");
+                $("#center>li>img").attr("src","images/"+($(this).text())+".webp");
+            }).mouseout(function(){
+                $(this).css("backgroundColor","");
+            });
+        }); */
+            
+        // 第二种思路
+        // 将图片事先加载在页面中，然后根据导航栏索引值显示对应图片
+        $(function(){
+            // 当鼠标进入导航栏时获取其索引值，隐藏现有图片，展示索引值处的图片
+            // 鼠标进入左侧导航栏
+            $("#left>li").mouseenter(function(){
+                // 获取索引值
+                var index = $(this).index();
+                // // 隐藏当前展示的图片
+                // $("#center>li").hide();
+                // // 显示对应索引值处图片
+                // $("#center>li").eq(index).show();
+                // 链式编程
+                $("#center>li").hide().eq(index).show();
+
+                // 修改背景颜色
+                $(this).css("backgroundColor","purple");
+            }).mouseleave(function(){
+                $(this).css("backgroundColor","");
+            });
+            // 鼠标进入右侧导航栏
+            $("#right>li").mouseenter(function(){
+                // 获取索引值
+                var index = $(this).index()+9;
+                // // 隐藏当前展示的图片
+                // $("#center>li").hide();
+                // // 显示对应索引值处图片
+                // $("#center>li").eq(index).show();
+                // 链式编程
+                $("#center>li").hide().eq(index).show();
+                // 修改背景颜色
+                $(this).css("backgroundColor","purple");
+            }).mouseleave(function(){
+                $(this).css("backgroundColor","");
+            });
+        });
+    </script>
+</head> 
+<body>
+    <div class="box" id="box">
+        <ul id="left">
+            <li><a href="#">窗帘</a></li>
+            <li><a href="#">床垫</a></li>
+            <li><a href="#">电脑椅</a></li>
+            <li><a href="#">电脑桌</a></li>
+            <li><a href="#">风扇</a></li>
+            <li><a href="#">连衣裙</a></li>
+            <li><a href="#">凉席</a></li>
+            <li><a href="#">零食</a></li>
+            <li><a href="#">男T恤</a></li>
+        </ul>
+        <ul id="center">
+            <li><a href="#"><img src="images/窗帘.webp" alt=""/></a></li>
+            <li><a href="#"><img src="images/床垫.webp" alt=""/></a></li>
+            <li><a href="#"><img src="images/电脑椅.webp" alt=""/></a></li>
+            <li><a href="#"><img src="images/电脑桌.webp" alt=""/></a></li>
+            <li><a href="#"><img src="images/风扇.webp" alt=""/></a></li>
+            <li><a href="#"><img src="images/连衣裙.webp" alt=""/></a></li>
+            <li><a href="#"><img src="images/凉席.webp" alt=""/></a></li>
+            <li><a href="#"><img src="images/零食.webp" alt=""/></a></li>
+            <li><a href="#"><img src="images/男T恤.webp" alt=""/></a></li>
+            <li><a href="#"><img src="images/男衬衫.webp" alt=""/></a></li>
+            <li><a href="#"><img src="images/男鞋.webp" alt=""/></a></li>
+            <li><a href="#"><img src="images/女T恤.webp" alt=""/></a></li>
+            <li><a href="#"><img src="images/女衬衫.webp" alt=""/></a></li>
+            <li><a href="#"><img src="images/女装.webp" alt=""/></a></li>
+            <li><a href="#"><img src="images/沙发.webp" alt=""/></a></li>
+            <li><a href="#"><img src="images/手机.webp" alt=""/></a></li>
+            <li><a href="#"><img src="images/拖鞋.webp" alt=""/></a></li>
+            <li><a href="#"><img src="images/运动鞋.webp" alt=""/></a></li>
+        </ul>
+        <ul id="right">
+            <li><a href="#">男衬衫</a></li>            
+            <li><a href="#">男鞋</a></li>            
+            <li><a href="#">女T恤</a></li>            
+            <li><a href="#">女衬衫</a></li>            
+            <li><a href="#">女装</a></li>            
+            <li><a href="#">沙发</a></li>            
+            <li><a href="#">手机</a></li>            
+            <li><a href="#">拖鞋</a></li>            
+            <li><a href="#">运动鞋</a></li>            
+        </ul>
+    </div>
+</body>
+</html>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <title>创建元素练习</title>
+
+    <style>
+        div{
+            width: 500px;
+            height: 600px;
+            border: 1px solid #ccc;
+        }
+    </style>
+
+    <script src="jq/jquery-1.12.1.js"></script>
+    <script>
+        $(function(){
+            $("#btn").click(
+                function(){
+                    for(var i=0;i<10;i++){
+                        // 方法1主动添加
+                        /* var p = $("<p>这是一个p</p>");
+                        $("div").append(p); */
+
+                        // 方法2被动添加
+                        $("<p>这是一个p</p>").appendTo("div");
+                        // $("<p>这是一个p</p>").appendTo(["div"]);
+                        // $("<p>这是一个p</p>").appendTo($("div"));
+                        // $("<p>这是一个p</p>").appendTo($("div")[0]);
+                        
+                    }
+                }
+            );
+        });
+    </script>
+
+</head>
+<body>
+    <input type="button" value="创建10个p" id="btn" />
+    <div></div>
+</body>
+</html

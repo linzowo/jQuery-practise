@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <title>网页开关灯</title>
+
+    <style>
+        .cls{
+            background-color: black;
+        }
+    </style>
+    <script src="jq/jquery-1.12.1.js"></script>
+    <script>
+        // 通过获取按钮名称的方式判断
+        // $(function(){
+        //     // 判断按钮的值，使用相应的设置
+        //     $("#btn").click(function(){
+        //         if($(this).val()=="关灯"){
+        //             $("body").css("backgroundColor","black");
+        //             $(this).val("开灯");
+        //         }else if($(this).val()=="开灯"){
+        //             $("body").css("backgroundColor","");
+        //             $(this).val("关灯");
+        //         }
+        //     });
+        // });
+
+        // 通过获取页面元素的样式判断
+        // $(function(){
+        //     // 判断当前页面样式，设置相应的属性
+        //     $("#btn").click(function(){
+        //         if($("body")[0].style.backgroundColor==""){
+        //             $("body").css("backgroundColor","black");
+        //         }else{
+        //             $("body").css("backgroundColor","");
+        //         }
+
+        //     });
+        // });
+        // 通过修改类样式名称来实现效果
+        // 方法1
+        /* $(function(){
+            // 点击按钮改变样式
+            $("#btn").click(function(){
+                if($("body").hasClass("cls")){
+                    // 移除类样式
+                    $("body").removeClass("cls");
+                }else{
+                    // 添加类样式
+                    $("body").addClass("cls");
+                }
+            });
+        }); */
+
+        // 方法2
+        $(function(){
+            $("#btn").click(function(){
+                
+                // 切换类样式
+                $("body").toggleClass("cls");
+            });
+        });
+        
+    </script>
+</head>
+<body>
+    <input type="button" class="btn" id="btn" value="开关"/>
+</body>
+</html>

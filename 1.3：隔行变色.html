@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <title>列表隔行变色</title>
+
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        .box{
+            margin-top: 100px;
+            margin-left: 400px;
+        }
+        .box ul{
+            width: 100px;
+        }
+        .box ul li{
+            display: block;
+            height: 50px;
+            list-style: none;
+        }
+    </style>
+    <script src="jq/jquery-1.12.1.js"></script>
+    <script>
+        // 为表格设置隔行变色效果
+        $(function(){
+            $("#btn").click(function(){
+                // 奇粉偶绿
+                // 获取奇数位的li标签
+                $("#uu>li:odd").css("backgroundColor","green");
+                // 获取偶数位的li标签
+                $("#uu>li:even").css("backgroundColor","pink");
+
+            });
+
+        });
+    </script>
+</head>
+<body>
+    <input type="button" id="btn" value="点击隔行变色"/>
+    <div class="box">
+        <ul id="uu">
+            <li>第1行</li>
+            <li>第2行</li>
+            <li>第3行</li>
+            <li>第4行</li>
+            <li>第5行</li>
+            <li>第6行</li>
+        </ul>
+    </div>
+</body>
+</html>

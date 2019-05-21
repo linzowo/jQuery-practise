@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <title>验证用户输入的是否是中文名称</title>
+
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        .box{
+            margin-left: 400px;
+            margin-top: 100px;
+        }
+    </style>
+    <script src="jq/jquery-1.12.1.js"></script>
+    <script>
+        $(function(){
+            // 版本1
+            // 点击按钮，如果用户有输入内容就，判断其输入的是否是中文名称
+        //     $("#btn").click(function(){
+        //         console.log($("#name").val());
+                
+        //         if($("#name").val()){
+        //             if(/^[\u4E00-\u9FA5]{2,6}$/.test($("#name").val())){
+        //                 $("#name").css("backgroundColor","green");
+        //             }else{
+        //                 $("#name").css("backgroundColor","red");
+        //             }
+        //         }else{
+        //             $("#name").css("backgroundColor","");
+        //         }
+        //     });
+            // 版本2
+            // 当输入框失去焦点是判断其是否是中文姓名
+            
+            $("#name").keyup(function(){// 当按键抬起时检测
+
+            // $("#name").blur(function(){// 当失去焦点时检测
+                // console.log($("#name").val());
+                if($("#name").val()){
+                    if(/^[\u4E00-\u9FA5]{2,6}$/.test($("#name").val())){
+                        $("#name").css("backgroundColor","green");
+                    }else{
+                        $("#name").css("backgroundColor","red");
+                    }
+                }else{
+                    $("#name").css("backgroundColor","");
+                }
+            });
+        });
+
+            
+    </script>
+</head>
+<body>
+    <div class="box" id="box">
+        <input type="button" value="验证" id="btn"><input type="text" id="name">
+    </div>
+</body>
+</html>

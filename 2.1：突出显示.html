@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <title>网页开关灯</title>
+
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        body{
+            background-color: #333;
+        }
+        img{
+            width: 150px;
+        }
+        ul{
+            overflow: hidden;
+            /* width: 850px; */
+        }
+        li{
+            list-style: none;
+            float: left;
+            height: 250px;
+            margin-right: 10px;
+            border: 1px solid gold;
+        }
+        .box{
+            width: 810px;
+            height: 505px;
+            border: 1px solid #ccc;
+            margin-left: 400px;
+            margin-top: 100px;
+        }
+    </style>
+    <script src="jq/jquery-1.12.1.js"></script>
+    <script>
+        $(function(){
+            // 当用户进入li时使该li所在区域opacity为1其余的透明度为0.5
+            $("ul>li").mouseenter(function(){
+                // 设置当期li的opacity为1,其兄弟元素为0.5
+                $(this).css("opacity",1).siblings("li").css("opacity",0.5);
+            });
+            $("ul").mouseleave(function(){
+                $("ul>li").css("opacity",1);
+            });
+        });
+    </script>
+</head>
+<body>
+    <div class="box">
+        <ul>
+            <li><a href="#"><img src="images/movie/1.webp" alt=""/></a></li>
+            <li><a href="#"><img src="images/movie/2.webp" alt=""/></a></li>
+            <li><a href="#"><img src="images/movie/3.webp" alt=""/></a></li>
+            <li><a href="#"><img src="images/movie/4.webp" alt=""/></a></li>
+            <li><a href="#"><img src="images/movie/5.webp" alt=""/></a></li>
+            <li><a href="#"><img src="images/movie/6.webp" alt=""/></a></li>
+            <li><a href="#"><img src="images/movie/7.webp" alt=""/></a></li>
+            <li><a href="#"><img src="images/movie/8.webp" alt=""/></a></li>
+            <li><a href="#"><img src="images/movie/9.webp" alt=""/></a></li>
+            <li><a href="#"><img src="images/movie/10.webp" alt=""/></a></li>
+        </ul>
+    </div>
+</body>
+</html>

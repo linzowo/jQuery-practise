@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <title>动画方法练习</title>
+
+    <style>
+        li{
+            list-style: none;
+            float: left;
+        }
+    </style>
+
+    <script src="jq/jquery-1.12.1.js"></script>
+    <script>
+        $(function(){
+            $("#btn").click(function(){
+                $("ul>li:last").hide(1000,function f1(){
+                    $(this).prev().hide(1000,f1);
+                });
+            });
+        });
+    </script>
+
+</head>
+<body>
+    <input type="button" value="隐藏元素" id="btn"/>
+    <ul>
+        <li><img src="images/movie/1.webp" alt=""></li>
+        <li><img src="images/movie/2.webp" alt=""></li>
+        <li><img src="images/movie/3.webp" alt=""></li>
+        <li><img src="images/movie/4.webp" alt=""></li>
+        <li><img src="images/movie/5.webp" alt=""></li>
+    </ul>
+
+</body>
+</html>
